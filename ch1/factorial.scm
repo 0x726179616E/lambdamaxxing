@@ -15,8 +15,7 @@
     1
     (* n (factorial (- n 1)))))
 
-(define iter-result (factorial 12))
-(define rec-result (recursive-factorial 12))
-
-(displayln (iter-result))
-(displayln (rec-result))
+(display (factorial 12))
+(newline)
+(display (recursive-factorial 12))
+(newline)
