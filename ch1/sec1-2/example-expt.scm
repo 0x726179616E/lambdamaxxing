@@ -21,6 +21,7 @@
 
 (define (square x) (* x x))
 
+; this process grows logarithmically with n, θ(log(n)) in both time and space 
 (define (expt-parity b n)
   (cond ((= n 0) 1)
         ((even? n) (square (expt-parity b (/ n 2))))
@@ -38,5 +39,7 @@
 (display (expt-iter 12 2))
 (newline)
 (display (expt-parity 12 2))
+(newline)
+(display (expt-parity 12 1000))
 (newline)
 
