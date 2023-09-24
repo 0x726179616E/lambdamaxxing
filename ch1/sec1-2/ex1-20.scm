@@ -18,7 +18,8 @@
 ; (gcd 206 40)
 ; if (= 40 0) 206 (gcd 40 (remainder 206 40))
 ; if (= 40 0) 206 (if (= (remainder 206 40) 0) 40 (gcd (remainder 206 40) (remainder 40 (remainder 206 40))))
-;...
+; if (= 40 0) 206 (if (= (remainder 206 40) 0) 40 (if (= (remainder 40 (remainder 206 40)) 0) (remainder 206 40) (gcd (remainder (remainder 206 40) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))))))
+; ... I don't want to keep expanding and then count all these remainder ops by hand ngl
 
 
 ; applicative order eval:
@@ -28,3 +29,5 @@
 ;     (gcd 6 (remainder 40 6) --> (gcd 6 4)
 ;       (gcd 4 (remainder 6 4) --> (gcd 4 2)
 ;         (gcd 2 (remainder 4 2)) --> (gcd 2 0) --> 0
+
+; there are 4 remainder operations performed in the case of applicative order evaluation
